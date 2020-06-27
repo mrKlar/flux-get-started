@@ -56,8 +56,6 @@ spec:
         - --random-delay=false
         - --random-error=false
         env:
-        - name: PODINFO_UI_COLOR
-          value: "#71567c"
         livenessProbe:
           httpGet:
             path: /healthz
