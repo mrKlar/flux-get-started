@@ -1,0 +1,1 @@
+{"jobID":"1384a82b-3680-9b4f-2e44-cd68ceea8c4e","spec":{"type":"policy","cause":{"Message":"","User":"Nicolas Desjardins \u003cn@laplanete.ca\u003e"},"spec":{"demo:deployment/podinfo":{"add":{"tag_all":"glob:1.4.*"},"remove":{}}}},"result":null}
