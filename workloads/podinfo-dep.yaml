@@ -32,7 +32,7 @@ spec:
         - "1"
       containers:
       - name: chat
-        image: mrklar/my-feathers-image:1.1
+        image: mrklar/my-feathers-image:1.3
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
