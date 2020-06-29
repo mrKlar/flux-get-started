@@ -34,17 +34,11 @@ spec:
         - "1"
       containers:
       - name: chat
-        image: my-feathers-image
+        image: mrklar/my-feathers-image
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
-          containerPort: 9898
-          protocol: TCP
-        - name: http-metrics
-          containerPort: 9797
-          protocol: TCP
-        - name: grpc
-          containerPort: 9999
+          containerPort: 3030
           protocol: TCP
         command:
         - ./podinfo
@@ -58,14 +52,6 @@ spec:
         env:
         - name: PODINFO_UI_COLOR
           value: "#999791"
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 9898
-        readinessProbe:
-          httpGet:
-            path: /readyz
-            port: 9898
         resources:
           limits:
             cpu: 1000m
