@@ -2,10 +2,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: podinfo
+  name: chat
   namespace: demo
   labels:
-    app: podinfo
+    app: chat
   annotations:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.init: regex:^3.10.*
@@ -17,24 +17,24 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: podinfo
+      app: chat
   template:
     metadata:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9797"
       labels:
-        app: podinfo
+        app: chat
     spec:
       initContainers:
       - name: init
-        image: alpine:3.10
+        image: alpine:3.12
         command:
         - sleep
         - "1"
       containers:
-      - name: podinfod
-        image: stefanprodan/podinfo:4.0.6
+      - name: chat
+        image: my-feathers-image
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
@@ -48,10 +48,10 @@ spec:
           protocol: TCP
         command:
         - ./podinfo
-        - --port=9898
+        - --port=3030
         - --port-metrics=9797
         - --grpc-port=9999
-        - --grpc-service-name=podinfo
+        - --grpc-service-name=chat
         - --level=info
         - --random-delay=false
         - --random-error=false
