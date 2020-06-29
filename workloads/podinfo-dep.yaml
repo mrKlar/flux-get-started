@@ -40,15 +40,6 @@ spec:
         - name: http
           containerPort: 3030
           protocol: TCP
-        command:
-        - ./podinfo
-        - --port=3030
-        - --port-metrics=9797
-        - --grpc-port=9999
-        - --grpc-service-name=chat
-        - --level=info
-        - --random-delay=false
-        - --random-error=false
         env:
         - name: PODINFO_UI_COLOR
           value: "#999791"
